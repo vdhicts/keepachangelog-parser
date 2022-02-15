@@ -66,7 +66,7 @@ class Parser
             return $release;
         });
 
-        $releases = collect($releases)->sortBy(function (Release $release) {
+        $releases = collect($releases)->sortByDesc(function (Release $release) {
             return is_null($release->getReleasedAt())
                 ? -1
                 : $release

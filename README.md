@@ -46,6 +46,8 @@ $unreleased = $changelog->getUnreleased();
 $latestRelease = $changelog->getLatestRelease();
 ```
 
+When all releases are retrieved, the newest will be the first and the unreleased will be the last one when present.
+
 The release has several methods to get information about the release:
 
 ```php
