@@ -41,7 +41,7 @@ class Changelog
     {
         return $this
             ->releases
-            ->last();
+            ->first();
     }
 
     public function getDescription(): array
