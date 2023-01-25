@@ -135,3 +135,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README now contains answers to common questions about CHANGELOGs
 - Good examples and basic guidelines, including proper date formatting.
 - Counter-examples: "What makes unicorns cry?"
+
+[unreleased]: https://github.com/vdhicts/keepachangelog-parser/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/vdhicts/keepachangelog-parser/compare/v0.0.1...v1.0.0
+[0.0.1]: https://github.com/vdhicts/keepachangelog-parser/releases/tag/v0.0.1

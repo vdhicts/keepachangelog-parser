@@ -11,13 +11,8 @@ class Section
     public const REMOVED = 'Removed';
     public const SECURITY = 'Security';
 
-    private string $type;
-    private array $entries;
-
-    public function __construct(string $type, array $entries)
+    public function __construct(private string $type, private array $entries)
     {
-        $this->type = $type;
-        $this->entries = $entries;
     }
 
     public function getType(): string

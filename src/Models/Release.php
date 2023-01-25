@@ -9,14 +9,13 @@ class Release
 {
     public const UNRELEASED = 'Unreleased';
 
-    private string $version;
-    private ?DateTimeInterface $releasedAt;
     private Collection $sections;
 
-    public function __construct(string $version, DateTimeInterface $releasedAt = null)
-    {
-        $this->version = $version;
-        $this->releasedAt = $releasedAt;
+    public function __construct(
+        private string $version,
+        private ?DateTimeInterface $releasedAt = null,
+        private ?string $tagReference = null
+    ) {
         $this->sections = collect();
     }
 
@@ -28,6 +27,16 @@ class Release
     public function getReleasedAt(): ?DateTimeInterface
     {
         return $this->releasedAt;
+    }
+
+    public function getTagReference(): ?string
+    {
+        return $this->tagReference;
+    }
+
+    public function setTagReference(?string $tagReference): void
+    {
+        $this->tagReference = $tagReference;
     }
 
     public function getSections(): Collection
