@@ -56,9 +56,15 @@ class Parser
         $releases = $crawledReleases->each(function (Crawler $crawledRelease) {
             $release = $this->parseRelease($crawledRelease);
 
+            $releaseReference = $crawledRelease
+                ->filter('a');
+            if ($releaseReference->count()) {
+                $release->setTagReference($releaseReference->attr('href'));
+            }
+
             $crawledSections = $crawledRelease
                 ->nextAll()
-                ->filterXPath('h3[preceding-sibling::h2[1][.="'.$crawledRelease->html().'"]]');
+                ->filterXPath('h3[preceding-sibling::h2[1][.="' . $crawledRelease->text() . '"]]');
             $crawledSections->each(function (Crawler $crawledSection) use ($release) {
                 $release->setSection($this->parseSection($crawledSection));
             });
@@ -67,11 +73,11 @@ class Parser
         });
 
         $releases = collect($releases)->sortByDesc(function (Release $release) {
-            return is_null($release->getReleasedAt())
+            $releaseDate = $release->getReleasedAt();
+
+            return is_null($releaseDate)
                 ? -1
-                : $release
-                    ->getReleasedAt()
-                    ->getTimestamp();
+                : $releaseDate->getTimestamp();
         });
 
         return new Changelog($releases, $this->getNodesText($crawler->filter('h1 ~ p')));

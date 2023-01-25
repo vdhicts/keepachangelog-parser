@@ -60,6 +60,9 @@ $version = $release->getVersion();
 // Get the release date, will be null when not released or a date isn't provided
 $data = $release->getReleasedAt();
 
+// Get the tag reference, usually something like https://github.com/vdhicts/keepachangelog-parser/compare/v0.0.1...v1.0.0
+$tagReference = $release->getTagReference();
+
 // Get a specific section of the release
 $added = $release->getSection(Section::ADDED);
 

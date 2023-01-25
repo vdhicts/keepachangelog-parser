@@ -29,6 +29,7 @@ class ParserTest extends TestCase
         $this->assertCount(13, $this->changelog->getReleases());
         $this->assertInstanceOf(Release::class, $this->changelog->getLatestRelease());
         $this->assertInstanceOf(Release::class, $this->changelog->getUnreleased());
+        $this->assertNotNull($this->changelog->getLatestRelease()->getTagReference());
     }
 
     public function testUnreleased()
@@ -41,6 +42,7 @@ class ParserTest extends TestCase
         $this->assertNull($unreleased->getReleasedAt());
         $this->assertCount(0, $unreleased->getSections());
         $this->assertNull($unreleased->getSection(Section::ADDED));
+        $this->assertNotNull($this->changelog->getLatestRelease()->getTagReference());
     }
 
     public function testRelease()
@@ -56,6 +58,7 @@ class ParserTest extends TestCase
         $this->assertCount(3, $release->getSections());
         $this->assertInstanceOf(Section::class, $release->getSection(Section::ADDED));
         $this->assertNull($release->getSection(Section::DEPRECATED));
+        $this->assertNotNull($release->getTagReference());
     }
 
     public function testSection()
