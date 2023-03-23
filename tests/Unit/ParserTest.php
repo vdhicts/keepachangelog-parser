@@ -15,7 +15,7 @@ class ParserTest extends TestCase
 
     protected function setUp(): void
     {
-        $changelogContent = file_get_contents(__DIR__ . '/../resources/ExampleChangelog.md');
+        $changelogContent = file_get_contents(__DIR__.'/../resources/ExampleChangelog.md');
 
         $parser = new Parser();
         $this->changelog = $parser->parse($changelogContent);
