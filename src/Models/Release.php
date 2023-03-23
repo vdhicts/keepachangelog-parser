@@ -12,8 +12,8 @@ class Release
     private Collection $sections;
 
     public function __construct(
-        private string $version,
-        private ?DateTimeInterface $releasedAt = null,
+        private readonly string $version,
+        private readonly ?DateTimeInterface $releasedAt = null,
         private ?string $tagReference = null
     ) {
         $this->sections = collect();

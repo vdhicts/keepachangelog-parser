@@ -11,7 +11,7 @@ class Section
     public const REMOVED = 'Removed';
     public const SECURITY = 'Security';
 
-    public function __construct(private string $type, private array $entries)
+    public function __construct(private readonly string $type, private readonly array $entries)
     {
     }
 
