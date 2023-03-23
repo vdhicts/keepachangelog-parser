@@ -4,7 +4,7 @@ Parser for the Keep A Changelog standard.
 
 ## Requirements
 
-This package requires at least PHP 8.0 or newer.
+This package requires at least PHP 8.1 or newer.
 
 ## Installation
 
