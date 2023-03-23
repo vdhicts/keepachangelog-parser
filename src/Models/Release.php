@@ -56,6 +56,7 @@ class Release
         $this
             ->sections
             ->put($section->getType(), $section);
+
         return $this;
     }
 

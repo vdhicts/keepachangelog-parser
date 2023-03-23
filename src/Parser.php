@@ -64,7 +64,7 @@ class Parser
 
             $crawledSections = $crawledRelease
                 ->nextAll()
-                ->filterXPath('h3[preceding-sibling::h2[1][.="' . $crawledRelease->text() . '"]]');
+                ->filterXPath('h3[preceding-sibling::h2[1][.="'.$crawledRelease->text().'"]]');
             $crawledSections->each(function (Crawler $crawledSection) use ($release) {
                 $release->setSection($this->parseSection($crawledSection));
             });
