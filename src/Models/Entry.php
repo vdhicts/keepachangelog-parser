@@ -7,7 +7,8 @@ class Entry
     public function __construct(
         private readonly string $html,
         private readonly string $plain,
-    ) {}
+    ) {
+    }
 
     public function toString(): string
     {
