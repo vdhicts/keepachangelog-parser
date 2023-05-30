@@ -6,6 +6,7 @@ use Illuminate\Support\Carbon;
 use League\CommonMark\CommonMarkConverter;
 use Symfony\Component\DomCrawler\Crawler;
 use Vdhicts\KeepAChangelog\Models\Changelog;
+use Vdhicts\KeepAChangelog\Models\Entry;
 use Vdhicts\KeepAChangelog\Models\Release;
 use Vdhicts\KeepAChangelog\Models\Section;
 
@@ -44,8 +45,15 @@ class Parser
 
         return new Section(
             $parsedSection->text(),
-            $this->getNodesText($lines)
+            $this->parseEntries($lines)
         );
+    }
+
+    private function parseEntries(Crawler $lines)
+    {
+        return $lines->each(function ($node) {
+            return new Entry($node->html(), $node->text());
+        });
     }
 
     public function parse(string $content): Changelog

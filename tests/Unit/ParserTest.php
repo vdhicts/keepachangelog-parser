@@ -5,6 +5,7 @@ namespace Vdhicts\KeepAChangelog\Tests\Unit;
 use DateTimeInterface;
 use PHPUnit\Framework\TestCase;
 use Vdhicts\KeepAChangelog\Models\Changelog;
+use Vdhicts\KeepAChangelog\Models\Entry;
 use Vdhicts\KeepAChangelog\Models\Release;
 use Vdhicts\KeepAChangelog\Models\Section;
 use Vdhicts\KeepAChangelog\Parser;
@@ -71,5 +72,21 @@ class ParserTest extends TestCase
         $this->assertSame(Section::ADDED, $section->getType());
         $this->assertIsArray($section->getEntries());
         $this->assertCount(23, $section->getEntries());
+    }
+
+    public function testEntry()
+    {
+        $entries = $this
+            ->changelog
+            ->getLatestRelease()
+            ->getSection(Section::ADDED)
+            ->getEntries();
+
+        $entry = $entries[0];
+
+        $this->assertInstanceOf(Entry::class, $entry);
+        $this->assertSame('New visual identity by <a href="https://github.com/tylerfortune8">@tylerfortune8</a>.', $entry->toHtml());
+        $this->assertSame('New visual identity by @tylerfortune8.', $entry->toString());
+        $this->assertSame('New visual identity by @tylerfortune8.', (string) $entry);
     }
 }
