@@ -58,9 +58,11 @@ class Parser
         });
     }
 
-    public function setDateFormat(string $dateFormat)
+    public function setDateFormat(string $dateFormat): Parser
     {
         $this->dateFormat = $dateFormat;
+
+        return $this;
     }
 
     public function parse(string $content): Changelog
