@@ -8,7 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Add support for Laravel 11.
+- Add support for Laravel 11. Thanks to @julesjanssen.
+- Make the Dateformat configurable. Thanks to @fabianpnke.
 
 ## [2.1.0] - 2023-05-30
 

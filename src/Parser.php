@@ -12,6 +12,8 @@ use Vdhicts\KeepAChangelog\Models\Section;
 
 class Parser
 {
+    private string $dateFormat = 'Y-m-d';
+
     private function getNodesText(Crawler $crawler): array
     {
         return $crawler->each(function ($node) {
@@ -30,7 +32,7 @@ class Parser
 
         $version = str_replace(['[', ']'], '', $releaseData[0]);
         $date = count($releaseData) >= 2
-            ? Carbon::createFromFormat('Y-m-d', $releaseData[1])
+            ? Carbon::createFromFormat($this->dateFormat, $releaseData[1])
             : null;
 
         return new Release($version, $date);
@@ -54,6 +56,13 @@ class Parser
         return $lines->each(function ($node) {
             return new Entry($node->html(), $node->text());
         });
+    }
+
+    public function setDateFormat(string $dateFormat): Parser
+    {
+        $this->dateFormat = $dateFormat;
+
+        return $this;
     }
 
     public function parse(string $content): Changelog

@@ -25,6 +25,20 @@ $parser = new \Vdhicts\KeepAChangelog\Parser();
 $changelog = $parser->parse($content);
 ```
 
+### Using a different date format
+
+The parser will parse the releases with the `Y-m-d` format by default.
+If you would like to use another format, you can just pass the format to the `setDateFormat` function.
+
+```php
+$content = file_get_contents('CHANGELOG.md');
+
+$parser = new \Vdhicts\KeepAChangelog\Parser();
+$changelog = $parser
+    ->setDateFormat('Y-m-d H:i:s')
+    ->parse($content);
+```
+
 ### Accessing the changelog
 
 The parser will return a `Changelog` models, with contains a collection of `Release` models. The `Release` model 
