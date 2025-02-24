@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Removed
 
 - Remove Laravel 9 and 10 support as they no longer receives any updates.
+- Remove support for PHP 8.1.
 
 ## [2.2.0] - 2024-03-17
 
