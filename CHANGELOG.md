@@ -8,7 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Add support for Laravel 11.
+- Add support for Laravel 12.
+- Add support for PHP 8.4.
 
 ### Changed
 
