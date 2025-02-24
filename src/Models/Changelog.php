@@ -6,9 +6,7 @@ use Illuminate\Support\Collection;
 
 class Changelog
 {
-    public function __construct(private readonly Collection $releases, private readonly array $description = [])
-    {
-    }
+    public function __construct(private readonly Collection $releases, private readonly array $description = []) {}
 
     public function getReleases(): Collection
     {
