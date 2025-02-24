@@ -16,9 +16,7 @@ class Section
 
     public const SECURITY = 'Security';
 
-    public function __construct(private readonly string $type, private readonly array $entries)
-    {
-    }
+    public function __construct(private readonly string $type, private readonly array $entries) {}
 
     public function getType(): string
     {

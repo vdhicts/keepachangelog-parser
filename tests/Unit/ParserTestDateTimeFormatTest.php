@@ -19,7 +19,7 @@ class ParserTestDateTimeFormatTest extends TestCase
         $this->changelog = $parser->parse($changelogContent);
     }
 
-    public function testRelease()
+    public function test_release()
     {
         $release = $this
             ->changelog

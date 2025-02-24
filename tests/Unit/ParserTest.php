@@ -22,7 +22,7 @@ class ParserTest extends TestCase
         $this->changelog = $parser->parse($changelogContent);
     }
 
-    public function testChangelog()
+    public function test_changelog()
     {
         $this->assertTrue($this->changelog->hasReleases());
         $this->assertIsArray($this->changelog->getDescription());
@@ -33,7 +33,7 @@ class ParserTest extends TestCase
         $this->assertNotNull($this->changelog->getLatestRelease()->getTagReference());
     }
 
-    public function testUnreleased()
+    public function test_unreleased()
     {
         $unreleased = $this
             ->changelog
@@ -46,7 +46,7 @@ class ParserTest extends TestCase
         $this->assertNotNull($this->changelog->getLatestRelease()->getTagReference());
     }
 
-    public function testRelease()
+    public function test_release()
     {
         $release = $this
             ->changelog
@@ -62,7 +62,7 @@ class ParserTest extends TestCase
         $this->assertNotNull($release->getTagReference());
     }
 
-    public function testSection()
+    public function test_section()
     {
         $section = $this
             ->changelog
@@ -74,7 +74,7 @@ class ParserTest extends TestCase
         $this->assertCount(23, $section->getEntries());
     }
 
-    public function testEntry()
+    public function test_entry()
     {
         $entries = $this
             ->changelog
