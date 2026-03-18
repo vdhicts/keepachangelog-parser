@@ -4,7 +4,7 @@ Parser for the Keep A Changelog standard.
 
 ## Requirements
 
-This package requires at least PHP 8.1 or newer.
+This package requires at least PHP 8.2 or newer.
 
 ## Installation
 
@@ -120,8 +120,3 @@ If you encounter a problem with this parser or has a question about it, feel fre
 ## License
 
 This package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-
-## About Vdhicts
-
-[Vdhicts](https://www.vdhicts.nl) is the name of my personal company for which I work as freelancer. Vdhicts develops
-and implements IT solutions for businesses and educational institutions.
